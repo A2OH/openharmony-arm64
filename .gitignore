@@ -1,0 +1,18 @@
+# Large binary images (tracked with Git LFS or downloaded)
+images/Image
+images/initramfs.img
+images/system.img
+images/vendor.img
+images/userdata.img
+images/updater.img
+images/art-overlay.img
+
+# Build artifacts
+build.log
+*.o
+*.dex
+
+# Editor
+.vscode/
+*.swp
+*~
