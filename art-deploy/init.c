@@ -60,12 +60,15 @@ int main(int argc, char **argv) {
             setenv("ANDROID_ROOT", "/art", 1);
             mkdir("/tmp/android-data", 0755);
             mkdir("/tmp/android-data/dalvik-cache", 0755);
-            /* Try to run dalvikvm with a test class */
+            /* A15 ART imageless mode (no boot image) */
+            mkdir("/tmp/android-data/dalvik-cache/arm64", 0755);
             char *args[] = {
                 "/art/dalvikvm",
-                "-Xverify:none", "-Xdexopt:none",
+                "-Xbootclasspath:/art/core-oj.jar:/art/core-libart.jar:/art/core-icu4j.jar",
+                "-Xverify:none",
+                "-Xusejit:false",
                 "-classpath", "/art/test.dex",
-                "HelloWorld",
+                "FibOnly",
                 NULL
             };
             execv("/art/dalvikvm", args);
