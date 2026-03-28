@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
             setenv("ANDROID_ROOT", "/art", 1);
             mkdir("/tmp/android-data", 0755);
             mkdir("/tmp/android-data/dalvik-cache", 0755);
-            /* A15 ART imageless mode (no boot image) */
+            /* A15 ART imageless + no JIT (simplest working config) */
             mkdir("/tmp/android-data/dalvik-cache/arm64", 0755);
             char *args[] = {
                 "/art/dalvikvm",
